@@ -11,8 +11,7 @@ const VideoList = ({ videos, onVideoSelect }) => {
             video = { video }
             /> );
 
-            return ( <
-                Grid container spacing = { 10 } > { listOfVideos } <
+            return ( < Grid container spacing = { 10 } > { listOfVideos } <
                 /Grid>
             );
         }
