@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Grid } from '@material-ui/core'
 
-import SearchBar from './components';
-import VideoDetail from './components/'
+import {SearchBar, VideoDetail } from './components';
+//import VideoDetail from './components/VideoDetail'
 
-import youtube from '.api/youtube';
+// eslint-disable-next-line no-unused-vars
+import youtube from './api/youtube';
 
 class App extends React.Component {
     render() {
@@ -19,18 +20,16 @@ class App extends React.Component {
             <
             Grid item xs = { 12 } >
             <
-            SearchBar / >
-            <
+            SearchBar > < /SearchBar> <
             /Grid> <
             Grid item xs = { 8 } >
             <
-            VideoDetail / >
-            <
+            VideoDetail > < /VideoDetail> <
+            /Grid>  <
+            Grid item xs = { 4 } > { /* <SearchBar/>  */ } <
+            /Grid>  <
             /Grid> <
-            Grid item xs = { 4 } > { /* VIDEO LIST */ } <
-            /Grid> <
-            /Grid> <
-            /Grid> <
+            /Grid>  <
             /Grid>
         )
     }
