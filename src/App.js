@@ -10,13 +10,13 @@ import youtube from './api/youtube';
 
 class App extends React.Component {
     state = {
-        videos: [],
-        selectedVideo: null,
+            videos: [],
+            selectedVideo: null,
+        }
+        //preload the page with a video titled->UI design with nodejs and react
+    componentDidMount() {
+        this.handleSubmit('UI design with nodejs and react');
     }
-
-componentDidMount(){
-    this.handleSubmit('UI design with nodejs and react');
-}
 
     onVideoSelect = (video) => {
         this.setState({ selectedVideo: video });
