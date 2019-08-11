@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Grid } from '@material-ui/core'
 
-import { SearchBar, VideoDetail } from './components';
+import { SearchBar, VideoDetail, VideoList } from './components';
 //import VideoDetail from './components/VideoDetail'
 
 // eslint-disable-next-line no-unused-vars
@@ -10,15 +10,24 @@ import youtube from './api/youtube';
 
 class App extends React.Component {
     state = {
-        video: [],
+        videos: [],
         selectedVideo: null,
     }
+
+componentDidMount(){
+    this.handleSubmit('UI design with nodejs and react');
+}
+
+    onVideoSelect = (video) => {
+        this.setState({ selectedVideo: video });
+    }
+
     handleSubmit = async(searchTerm) => {
         const response = await youtube.get('search', {
             params: {
                 part: 'snippet',
                 maxResults: 5,
-                key: 'AIzaSyCzOt9CsfS8l0hThfu2KvU7VNxLKDS5Kow',
+                key: 'AIzaSyAeTJkoVIewKO7gYa5EbCpD-hOLVGR2Jzc',
                 q: searchTerm,
             }
         });
@@ -27,8 +36,10 @@ class App extends React.Component {
         this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] });
     }
 
+
+
     render() {
-        const { selectedVideo } = this.state;
+        const { selectedVideo, videos } = this.state;
         return ( <
             Grid justify = "center"
             container spacing = { 10 } >
@@ -41,16 +52,22 @@ class App extends React.Component {
             <
             SearchBar onFormSubmit = { this.handleSubmit } >
             <
-            /SearchBar>  <
-            /Grid> <
+            /SearchBar>  < /
+            Grid > <
             Grid item xs = { 8 } >
             <
-            VideoDetail video = { selectedVideo } > < /VideoDetail>  <
-            /Grid>   <
-            Grid item xs = { 4 } > { /* <SearchBar/>  */ } <
-            /Grid>   <
-            /Grid>  <
-            /Grid>   <
+            VideoDetail video = { selectedVideo } > < /VideoDetail>  < /
+            Grid >
+            <
+            Grid item xs = { 4 } >
+            <
+            VideoList videos = { videos }
+            onVideoSelect = { this.onVideoSelect } >
+            <
+            /VideoList>  < /
+            Grid > < /
+            Grid > < /
+            Grid > <
             /Grid>
         )
     }
