@@ -46,28 +46,29 @@ class App extends React.Component {
             <
             Grid item xs = { 12 } >
             <
-            Grid container spacing = { 10 } >
+            Grid container spacing = { 2 } >
             <
             Grid item xs = { 12 } >
             <
             SearchBar onFormSubmit = { this.handleSubmit } >
             <
-            /SearchBar>  < /
-            Grid > <
+            /SearchBar>   <
+            /Grid>  <
             Grid item xs = { 8 } >
             <
-            VideoDetail video = { selectedVideo } > < /VideoDetail>  < /
-            Grid >
+            VideoDetail video = { selectedVideo } >
             <
-            Grid item xs = { 4 } >
+            /VideoDetail>   <
+            /Grid> <
+            Grid item xs = { 3 } >
             <
             VideoList videos = { videos }
             onVideoSelect = { this.onVideoSelect } >
             <
-            /VideoList>  < /
-            Grid > < /
-            Grid > < /
-            Grid > <
+            /VideoList>   <
+            /Grid>  <
+            /Grid>  <
+            /Grid> <
             /Grid>
         )
     }
